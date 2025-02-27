@@ -1,20 +1,4 @@
-// const mongoose = require("mongoose");
 
-// const taskSchema = new mongoose.Schema({
-//   title: { type: String, required: true },
-//   team: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-//   stage: { type: String, required: true },
-//   date: { type: Date, required: true },
-//   priority: { type: String, required: true },
-//   assets: [{ type: String }],
-//   activities: [{
-//     type: { type: String },
-//     activity: { type: String },
-//     by: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
-//   }]
-// });
-
-// module.exports = mongoose.model("Task", taskSchema);
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
@@ -34,4 +18,3 @@ const taskSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 module.exports = mongoose.model('Task', taskSchema);
-

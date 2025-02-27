@@ -1,39 +1,48 @@
-// const express = require("express");
-// const router = express.Router();
-// const taskController = require("../controllers/taskController");
-
-// // Routes
-// router.post("/create", taskController.createTask);
-// router.post("/assignMembers", taskController.assignMembers);
-// router.get("/tasks/:memberId", taskController.getTasksForTeamLead);
-
-// module.exports = router;
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const taskController = require('../controllers/taskController');
+const taskController = require("../controllers/taskController");
 
 // Create Task
-router.post('/create', taskController.createTask);
+router.post("/create", taskController.createTask);
+
+// Get All Tasks
+router.get("/all", taskController.getAllTasks);
+
+//get single task
+router.get("/:taskId", taskController.getSingleTask);
 
 // Assign Members to Task
-router.put('/assign', taskController.assignMembers);
+router.put("/:taskId/assign", taskController.assignMembers);
 
 // Edit Task
-router.put('/edit', taskController.editTask);
+router.put("/:taskId", taskController.editTask);
 
 // Delete Task
-router.delete('/delete/:taskId', taskController.deleteTask);
+router.delete("/:taskId", taskController.deleteTask);
 
-// Get Tasks by Status (Completed, In Progress, Todo)
-router.get('/status/:status', taskController.getTasksByStatus);
+// Get Tasks by Status (Completed, In Progress, To Do)
+router.get("/status/:status", taskController.getTasksByStatus);
 
 // Get Tasks by Priority (High, Medium, Low)
-router.get('/priority/:priority', taskController.getTasksByPriority);
+router.get("/priority/:priority", taskController.getTasksByPriority);
 
 // Get Due Tasks
-router.get('/due', taskController.getDueTasks);
+router.get("/due/tasks", taskController.getDueTasks);
 
 // Get Tasks for Team Lead
-router.get('/team-lead/:memberId', taskController.getTasksForTeamLead);
+router.get("/team-lead/:memberId", taskController.getTasksForTeamLead);
+
+// Get Assigned Tasks for Member
+router.get("/member/:memberId/assigned", taskController.getAssignedTasksForMember);
+
+// Get Pending Tasks for Member
+router.get("/member/:memberId/pending", taskController.getPendingTasksForMember);
+// get all task conut
+
+router.get("/stage/counts", taskController.getTotalTaskCounts);
+
+
+//get all protyy based count
+router.get("/counts/Priority",taskController.getTaskCountsByPriority)
 
 module.exports = router;
