@@ -711,7 +711,7 @@ body {
     width: 164px;
     background-color: #3B82F6;
     color: white;
-    border: none;
+    border: 1px solid black;
     border-radius: 5px;
 }
 #mail{

@@ -179,15 +179,49 @@ const Signin = () => {
   };
 
   return (
-    <div className="signin-container">
-      <h1>Sign In</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="email" placeholder="Email" {...register("email", { required: "Email is required" })} />
-        {errors.email && <p>{errors.email.message}</p>}
-        <input type="password" placeholder="Password" {...register("password", { required: "Password is required" })} />
-        {errors.password && <p>{errors.password.message}</p>}
-        <button type="submit" disabled={loading}>{loading ? "Signing In..." : "Sign In"}</button>
-      </form>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-100 to-purple-200">
+      <div className="bg-white flex rounded-2xl shadow-lg overflow-hidden max-w-4xl w-full">
+        {/* Sign In Section */}
+        <div className="w-1/2 p-8">
+          <h1 className="text-2xl font-bold text-gray-800">Sign In</h1>
+          <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
+            <input
+              type="email"
+              placeholder="Email"
+              {...register("email", { required: "Email is required" })}
+              className="w-full px-4 py-2 border rounded-md mt-2"
+            />
+            {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+            <input
+              type="password"
+              placeholder="Password"
+              {...register("password", { required: "Password is required" })}
+              className="w-full px-4 py-2 border rounded-md mt-2"
+            />
+            {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
+            <a href="/forgot-password" className="text-sm text-blue-500 block mt-2">Forgot Your Password?</a>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-purple-600 text-white py-2 mt-4 rounded-md hover:bg-purple-700 transition"
+            >
+              {loading ? "Signing In..." : "Sign In"}
+            </button>
+          </form>
+        </div>
+        
+        {/* Sign Up Section */}
+        <div className="w-1/2 bg-gradient-to-r from-purple-600 to-indigo-600 flex flex-col items-center justify-center text-white p-8">
+          <h2 className="text-2xl font-bold">Hello, Friend!</h2>
+          <p className="mt-2 text-center">Register with your personal details to use all site features</p>
+          <button
+            onClick={() => navigate("/signup")}
+            className="border border-white px-6 py-2 rounded-md mt-4 hover:bg-white hover:text-purple-600 transition"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

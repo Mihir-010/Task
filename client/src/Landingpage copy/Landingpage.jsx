@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-// import heroImage from "../assets/images/pic-one.png";
-// import logo from "../assets/images/logo.png";
+import heroImage from "/src/assets/images/pic-one.png";
+import logo from "/src/assets/images/logo.png"
 import "../Landingpage copy/Style.css"
 
 

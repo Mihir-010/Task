@@ -1,18 +1,4 @@
-// const express = require("express");
-// const { registerUser, loginUser,getUsersByRole } = require("../controllers/authController");
 
-// const router = express.Router();
-
-// // Register route
-// router.post("/register", registerUser);
-
-// // Login route
-// router.post("/login", loginUser);
-
-// router.get("/users/:role", getUsersByRole);
-// router.post("/users/:role", registerUser); 
-
-// module.exports = router;
 
 const express = require("express");
 const { registerUser, loginUser, getUsersByRole, getUserById,getRolesCount,getTeamLeadsAndMembers } = require("../controllers/authController");
